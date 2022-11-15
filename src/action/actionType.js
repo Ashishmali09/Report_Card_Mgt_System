@@ -1,0 +1,21 @@
+export const GET_ALL_STANDARDS = "GET_ALL_STANDARDS";
+export const ADD_STANDARDS = "ADD_STANDARDS";
+export const DELETE_STANDARD = "DELETE_STANDARD";
+export const UPDATE_STANDARD = "UPDATE_STANDARD";
+
+export const GET_ALL_DIVISIONS = "GET_ALL_DIVISIONS";
+export const ADD_DIVISIONS = "ADD_DIVISIONS";
+export const DELETE_DIVISION = "DELETE_DIVISION";
+
+export const GET_ALL_ROLES = "GET_ALL_ROLES";
+export const ADD_ROLES = "ADD_ROLES";
+export const DELETE_ROLE = "DELETE_ROLE";
+
+export const GET_ALL_GRADES = "GET_ALL_GRADES";
+export const ADD_GRADES = "ADD_GRADES";
+export const DELETE_GRADE = "DELETE_GRADE";
+
+export const GET_ALL_STUDENTS = "GET_ALL_STUDENTS";
+export const ADD_STUDENTS = "ADD_STUDENTS";
+export const DELETE_STUDENT = "DELETE_STUDENT";
+export const UPDATE_STUDENT = "UPDATE_STUDENT";

@@ -32,3 +32,10 @@ code {
 /* .selectlogin::-ms-expand {
   display: none;
 } */
+
+.paper-window {
+  scrollbar-width: 0;
+}
+.paper-window::-webkit-scrollbar {
+  display: none;
+}

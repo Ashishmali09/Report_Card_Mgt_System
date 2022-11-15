@@ -3,30 +3,18 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import RMSlogo from "../assets/RMSlogo.png";
 
-const adminMenuList = [
+const classTeacherMenuList = [
   {
-    title: "Standards",
-    to: "standards",
+    title: "Students",
+    to: "students",
   },
   {
-    title: "Division",
-    to: "division",
-  },
-  {
-    title: "Roles",
-    to: "roles",
-  },
-  {
-    title: "User Roles",
-    to: "userroles",
-  },
-  {
-    title: "Grades",
-    to: "grades",
+    title: "Reports",
+    to: "reports",
   },
 ];
 
-const AdminDashboard = () => {
+const ClassTeacherDashboard = () => {
   return (
     <div className=" h-screen w-full mx-auto flex justify-center">
       <div className="flex flex-col bg-[#F3F3F3]" style={{ flex: "1" }}>
@@ -36,11 +24,11 @@ const AdminDashboard = () => {
         </div>
       </div>
       <div className="flex flex-col bg-white" style={{ flex: "5" }}>
-        <Navbar menuList={adminMenuList} />
+        <Navbar menuList={classTeacherMenuList} />
         <Outlet />
       </div>
     </div>
   );
 };
 
-export default AdminDashboard;
+export default ClassTeacherDashboard;

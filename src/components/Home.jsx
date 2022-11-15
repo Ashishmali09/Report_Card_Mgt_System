@@ -1,16 +1,16 @@
 import React from "react";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import baseBackgroundImage from "../assets/baseBackgroundImage.png";
 
 const Home = () => {
   const navigate = useNavigate();
   return (
     <div
-      className="h-[95%] w-[66%] bg-white bg-contain bg-no-repeat"
+      className="h-[95%] w-full bg-white bg-contain bg-no-repeat absolute"
       style={{ backgroundImage: `url(${baseBackgroundImage})` }}
     >
-      <div className="w-full h-20 flex justify-end items-center pr-10">
-        <NavLink to="/" className="text-orange-600 mx-3 text-xs  font-bold">
+      <div className="w-full h-20 flex justify-end items-center pr-101">
+        <NavLink to="/" className="text-orange-600 mx-3 text-xs font-bold">
           ABOUT US
         </NavLink>
         <select

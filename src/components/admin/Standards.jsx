@@ -4,12 +4,17 @@ import { BiSearch, BiPlusCircle } from "react-icons/bi";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import StripeCard from "../common/StripeCard";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getAllStandards, deleteStandard } from "../../action/standardAction";
+import { NavLink } from "react-router-dom";
 
 const schema = yup.object().shape({
-  standardinput: yup.string().required("Please enter Standar Number"),
+  standardinput: yup.string().required("Please Enter Standard"),
 });
 
 const Standards = () => {
+  const dispatch = useDispatch();
   const [searchStandards, setSearchStandards] = useState();
   const {
     register,
@@ -20,6 +25,20 @@ const Standards = () => {
   const handleAddStandard = (data) => {
     console.log(data);
   };
+
+  const standards = useSelector((state) => state.standardReducer.standards);
+
+  const handleDelete = (id) => {
+    console.log(id);
+    dispatch(deleteStandard(id));
+  };
+
+  useEffect(() => {
+    dispatch(getAllStandards());
+  }, []);
+
+  // const stdArr = ["I", "II", "III", "IV"]; //[{_id,name},{}]
+
   return (
     <div>
       <div className="w-full h-14 bg-white flex justify-end items-center">
@@ -29,15 +48,15 @@ const Standards = () => {
             type="text"
             name="search"
             id="search"
-            className="w-[90%] h-full outline-none"
+            className="w-[90%] h-full outline-none "
             onChange={(e) => {
-              console.log(e.target.value.trim());
+              // console.log(e.target.value.trim());
               setSearchStandards(e.target.value.trim());
             }}
           />
         </div>
       </div>
-      <div className="border-t-2 p-10  h-full">
+      <div className="border-t-2 p-10 h-full paper-window overflow-y-auto">
         <form
           onSubmit={handleSubmit(handleAddStandard)}
           className="flex items-center justify-between "
@@ -57,19 +76,27 @@ const Standards = () => {
               </span>
             </label>
           </div>
-          <button
-            type="submit"
-            className="h-14 px-3 text-xs w-[18%] rounded-lg bg-primary text-white flex flex-col items-center justify-center"
-          >
-            <BiPlusCircle size={20} />
-            <span>Add Standard</span>
-          </button>
+          <NavLink to="/admin/standards/add_standard">
+            <button
+              type="submit"
+              className="h-14 px-4 text-xs w-44 rounded-lg bg-primary paper-window text-white flex flex-col items-center justify-center"
+              // onClick={handleAddStandard}
+            >
+              <BiPlusCircle size={20} />
+
+              <span>Add Standard</span>
+            </button>
+          </NavLink>
         </form>
-        <StripeCard />
-        <StripeCard />
-        <StripeCard />
-        <StripeCard />
-        <StripeCard />
+        {standards.map((s) => (
+          <StripeCard item={s} deleteFun={handleDelete} key={s._id} />
+        ))}
+
+        {/* 
+       let standards = this.state.standards;
+this.setState({
+  standards: !standards // here
+}) */}
       </div>
     </div>
   );

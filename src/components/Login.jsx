@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 const schema = yup.object().shape({
   username: yup.string().required("Please enter username").min(5).max(50),
-  password: yup.string().required("Please enter username").min(8).max(1024),
+  password: yup.string().required("Please enter password").min(8).max(1024),
 });
 
 export function getLoaderData({ params }) {
@@ -18,7 +18,7 @@ const Login = () => {
 
   const {
     register,
-   
+
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
@@ -36,12 +36,12 @@ const Login = () => {
     }
     if (role === "teacherlogin" && data.teacherType === "Class Teacher") {
       //login dispatch
-      navigate("/classteacher");
+      navigate("/classTeacher");
     }
   };
   return (
     <div
-      className="h-[95%] w-[66%] bg-white bg-contain bg-no-repeat relative"
+      className="h-[95%] w-[66%] bg-white bg-contain bg-no-repeat absolute"
       style={{ backgroundImage: `url(${backgroundImageLogin})` }}
     >
       <div className="w-full h-20 flex justify-end items-center pr-10">
@@ -95,7 +95,7 @@ const Login = () => {
               id="password"
               {...register("password")}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-              placeholder="egdfghjk$fghjk#"
+              placeholder="egghjk$f99hjk#"
             />
             <p className="text-red-400">{errors.password?.message}</p>
           </label>
